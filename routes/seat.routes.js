@@ -27,6 +27,17 @@ router.get('/seats/:id', (req, res) => {
 
 router.post('/seats', validateInput(seatSchema), (req, res) => {
   const { day, seat, client, email } = req.body;
+
+  const isSeatOccupied = db.seats.some(
+    item => item.day === day && item.seat === seat
+  );
+
+  if (isSeatOccupied) {
+    return res
+      .status(409)
+      .json({ message: 'The slot is already taken for this day...' });
+  }
+
   const newSeat = {
     id: Math.max(...(db.seats.map(item => item.id, 0) + 1)),
     day,
