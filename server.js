@@ -31,10 +31,13 @@ app.use((req, res) => {
   res.status(404).send({ message: 'Not found...' });
 });
 
-mongoose.connect('mongodb://0.0.0.0:27017/NewWaveDB', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  'mongodb+srv://mrwilkd:SC1QMqLK622fhin3@cluster0.xu2ksze.mongodb.net/NewWaveDB?retryWrites=true&w=majority',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 const db = mongoose.connection;
 
 app.use((req, res, next) => {
