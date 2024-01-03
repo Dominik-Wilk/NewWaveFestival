@@ -33,7 +33,8 @@ exports.post = async (req, res) => {
     const newSeat = new Seat({ day, seat, client, email });
     await newSeat.save();
 
-    req.io.emit('seatsUpdated', newSeat);
+    const seats = await Seat.find();
+    req.io.emit('seatsUpdated', seats);
 
     res.status(201).json({ message: 'OK' });
   } catch (err) {
