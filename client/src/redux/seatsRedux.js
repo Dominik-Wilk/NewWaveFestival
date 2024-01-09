@@ -4,6 +4,8 @@ import { API_URL } from '../config';
 /* SELECTORS */
 export const getSeats = ({ seats }) => seats.data;
 export const getRequests = ({ seats }) => seats.requests;
+export const getSeatsByDay = ({ seats }, day) =>
+  seats.data.filter(seat => seat.day === day);
 
 /* ACTIONS */
 

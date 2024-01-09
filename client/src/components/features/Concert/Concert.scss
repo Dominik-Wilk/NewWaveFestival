@@ -1,6 +1,5 @@
 @import '../../../styles/settings.scss';
 
-
 .concert {
   position: relative;
   overflow: hidden;
@@ -16,14 +15,14 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: .5s;
+      transition: 0.5s;
       z-index: 2;
       position: relative;
     }
-  
   }
 
   &__info {
+    height: 100%;
     margin: 2rem;
 
     &__back {
@@ -45,24 +44,28 @@
     }
 
     &__day-n-price {
-      position: relative;
       z-index: 2;
       margin: 0.5rem;
       position: absolute;
-      bottom: 1rem;
-      left: 1.5rem;
+      bottom: 1.5rem;
     }
-  
+
+    &__tickets {
+      opacity: 0.8;
+      font-size: 0.9rem;
+      margin-left: 0.5rem;
+      position: absolute;
+      bottom: 3rem;
+    }
   }
 
   &:nth-of-type(2n) .row {
-
     color: $color-text-bright;
-  
+
     > div:first-child {
       order: 2;
     }
-  
+
     > div:second-child {
       order: 1;
     }
@@ -74,7 +77,6 @@
 }
 
 @media (max-width: 768px) {
-
   .concert__info__performer {
     font-size: 1.8rem;
     margin: 0.5rem;

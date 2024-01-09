@@ -20,8 +20,14 @@ exports.getById = async (req, res) => {
 
 exports.post = async (req, res) => {
   try {
-    const { performer, genre, price, day } = req.body;
-    const newConcert = new ConcertController({ performer, genre, price, day });
+    const { performer, genre, price, day, tickets } = req.body;
+    const newConcert = new ConcertController({
+      performer,
+      genre,
+      price,
+      day,
+      tickets,
+    });
     await newConcert.save();
     res.status(201).json({ message: 'OK' });
   } catch (err) {
