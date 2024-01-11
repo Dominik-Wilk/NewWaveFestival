@@ -4,6 +4,7 @@ const path = require('path');
 const socket = require('socket.io');
 const mongoose = require('mongoose');
 const app = express();
+const helmet = require('helmet');
 
 const testimonialsRoutes = require('./routes/testimonials.routes');
 const concertsRoutes = require('./routes/concerts.routes');
@@ -19,6 +20,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(helmet());
 app.use('/api', testimonialsRoutes);
 app.use('/api', concertsRoutes);
 app.use('/api', seatsRoutes);
